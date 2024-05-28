@@ -21,6 +21,11 @@ import java.util.List;
 @RequestMapping("/tasks")
 public class TaskController {
 
+    @GetMapping("/{ping}")
+    public ResponseEntity<String> test(@PathVariable String ping) {
+        return ResponseEntity.status(HttpStatus.OK).body("pong");
+    }
+
     private final ITaskService taskService;
 
     /**
