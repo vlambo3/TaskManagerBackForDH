@@ -7,6 +7,7 @@ import com.dh.TaskManager.exception.NotFoundException;
 import com.dh.TaskManager.service.ITaskService;
 import com.dh.TaskManager.service.impl.TaskService;
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,13 +20,15 @@ import java.util.Locale;
  * Controlador para gestionar las operaciones relacionadas con las tareas.
  */
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*")
 @RequestMapping("/tasks")
+@Slf4j
 public class TaskController {
 
     @GetMapping("/{ping}")
     public ResponseEntity<String> test(@PathVariable String ping) {
-        return ResponseEntity.status(HttpStatus.OK).body("pong"+ " version 1.0.0");
+        log.info("THE PING ENDPOINT IS WORKING");
+        return ResponseEntity.status(HttpStatus.OK).body("pong"+ " version 1.0.1");
     }
 
     private final ITaskService taskService;
