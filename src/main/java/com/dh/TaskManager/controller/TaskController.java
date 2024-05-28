@@ -11,7 +11,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Controlador para gestionar las operaciones relacionadas con las tareas.
@@ -23,7 +25,7 @@ public class TaskController {
 
     @GetMapping("/{ping}")
     public ResponseEntity<String> test(@PathVariable String ping) {
-        return ResponseEntity.status(HttpStatus.OK).body("pong");
+        return ResponseEntity.status(HttpStatus.OK).body("pong"+ " version 1.0.0");
     }
 
     private final ITaskService taskService;
